@@ -1,51 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Array Cardio 💪💪</title>
-  <link rel="icon" href="https://fav.farm/🔥" />
-</head>
-<body>
-  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
-  <script>
-    // ## Array Cardio Day 2
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
 
-    const people = [
-      { name: 'Wes', year: 1988 },
-      { name: 'Kait', year: 1986 },
-      { name: 'Irv', year: 1970 },
-      { name: 'Lux', year: 2015 }
-    ];
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
 
-    const comments = [
-      { text: 'Love this!', id: 523423 },
-      { text: 'Super good', id: 823423 },
-      { text: 'You are the best', id: 2039842 },
-      { text: 'Ramen is my fav food ever', id: 123523 },
-      { text: 'Nice Nice Nice!', id: 542328 }
-    ];
+    <h1>My shopping list</h1>
 
-    // Some and Every Checks
-    // Array.prototype.some() // is at least one person 19 or older?
-    // Array.prototype.every() // is everyone 19 or older?
-    let currentYear = 2025;
-    let person = people.every(a => currentYear - a.year >= 19);
-    console.log(person);
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
 
-    // Array.prototype.find()
-    // Find is like filter, but instead returns just the one you are looking for
-    // find the comment with the ID of 823423
-    let com = comments.find(a => a.id === 823423);
-    console.log(com);
+    <ul>
 
-    // Array.prototype.findIndex()
-    // Find the comment with this ID
-    // delete the comment with the ID of 823423
-    let del = comments.findIndex(a => a.id === 823423);
-    console.log(del);
-    comments.splice(del, 1);
-    console.table(comments);
+    </ul>
 
-  </script>
-</body>
+    <script>
+      const unlisted = document.querySelector("ul");
+      const input_data = document.querySelector("input");
+      const btn = document.querySelector("button");
+
+      btn.addEventListener("click", () => {
+        const itemText = input_data.value.trim();
+
+        if (itemText === "") {
+          alert("Please enter an item.");
+          return;
+        }
+
+        const listItem = document.createElement("li");
+        const span = document.createElement("span");
+        const buttondar = document.createElement("button");
+
+        span.textContent = itemText;
+        buttondar.textContent = "Delete";
+
+        listItem.appendChild(span);
+        listItem.appendChild(buttondar);
+        unlisted.appendChild(listItem);
+
+        buttondar.addEventListener("click", () => {
+          unlisted.removeChild(listItem);
+        });
+
+        input_data.value = "";
+        input_data.focus();
+      });
+
+    </script>
+  </body>
 </html>
