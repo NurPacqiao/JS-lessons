@@ -1,67 +1,23 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping list example</title>
-    <style>
-      li {
-        margin-bottom: 10px;
-      }
-
-      li button {
-        font-size: 12px;
-        margin-left: 20px;
-        color: #666;
-      }
-    </style>
+    <title>The Holy Grail</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-
-    <h1>My shopping list</h1>
-
-    <div>
-      <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item">
-      <button>Add item</button>
+    <div class="container">
+      <div class="header">Header</div>
+      <div class="sidebar">Sidebar</div>
+      <div class="nav">Nav</div>
+      <div class="article">Article
+        <p>Lorem  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur bibendum turpis quis interdum semper. Sed at pharetra neque, nec lacinia diam. Suspendisse quis faucibus mi, aliquam porttitor ipsum. Vivamus condimentum eros id mattis pharetra. Duis varius eros nibh. Donec a venenatis eros. Fusce in mauris massa. Donec est metus, rhoncus eu leo sed, aliquet posuere nisl.</p>
+        <p>Cras ut ex in nibh accumsan ullamcorper. Fusce rutrum, metus id porta porttitor, leo ipsum congue velit, eu hendrerit lectus nisi a odio. Pellentesque tristique eros id nibh finibus euismod. Cras suscipit volutpat elit eget pulvinar. Vivamus at blandit leo. Aenean sodales ex non massa efficitur, et egestas neque dapibus. In consequat hendrerit ex, nec finibus magna faucibus eu. Aliquam a libero non erat sollicitudin condimentum. In ac fringilla nisi. Sed pharetra ut turpis id luctus. Proin posuere tortor ac tempus luctus. Donec vitae est et neque faucibus posuere. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+      </div>
+      <div class="footer">Footer</div>
     </div>
-
-    <ul>
-
-    </ul>
-
-    <script>
-      const unlisted = document.querySelector("ul");
-      const input_data = document.querySelector("input");
-      const btn = document.querySelector("button");
-
-      btn.addEventListener("click", () => {
-        const itemText = input_data.value.trim();
-
-        if (itemText === "") {
-          alert("Please enter an item.");
-          return;
-        }
-
-        const listItem = document.createElement("li");
-        const span = document.createElement("span");
-        const buttondar = document.createElement("button");
-
-        span.textContent = itemText;
-        buttondar.textContent = "Delete";
-
-        listItem.appendChild(span);
-        listItem.appendChild(buttondar);
-        unlisted.appendChild(listItem);
-
-        buttondar.addEventListener("click", () => {
-          unlisted.removeChild(listItem);
-        });
-
-        input_data.value = "";
-        input_data.focus();
-      });
-
-    </script>
   </body>
-</html>
+</html>   
